@@ -1,0 +1,292 @@
+This project is implemented in python.
+
+There are 4 entities in system
+goofy, amit, mohit and rohit
+Goofy can generate, send and receive coins whereas all others can only send and receive coins
+
+Inside folder GoofyCoin run tests.py
+Execution is based on a menu driven approach with the following actions:
+0. No action - EXIT
+1. Goofy Create coins
+2. Make payment
+
+ACTION 0 - Exit from the system
+
+
+ACTION 1 -
+0. No action - EXIT
+1. Goofy Create coins
+2. Make payment
+Enter action to perform
+1
+Enter number of coins to generate
+100
+------------------------------Ledger------------------------------
+Block: 0
+Hash previous block: None
+TransID: 0
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 0
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+------------------------------Block: 1
+Hash previous block: 26873f8a49f2af3fc87790fa89ea7f455b66227151d75d3422820ea5b660eea3
+TransID: 1
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 100
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+
+ACTION 2-
+
+CASE 1 - SUCCESSFUL Payment
+Transaction divides in two transactions where
+- The orignal coins will be marked as spent
+- Coins paid will be added to receiver's coins
+- Remaining coins(balance - paid coins) will be added to sender's coins
+
+Enter action to perform
+2
+Enter Sender
+"goofy"
+Enter Receiver
+"amit"
+Enter coins to pay
+50
+transaction =  TransID: 0
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 0
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+transaction =  TransID: 1
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 100
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+*********
+Num: 0
+Value: 0
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+Num: 0
+Value: 100
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+*********
+coin value  100
+amount  50
+Payment Successful
+------------------------------Ledger------------------------------
+Block: 0
+Hash previous block: None
+TransID: 0
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 0
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+------------------------------Block: 1
+Hash previous block: 26873f8a49f2af3fc87790fa89ea7f455b66227151d75d3422820ea5b660eea3
+TransID: 1
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 100
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+------------------------------Block: 2
+Hash previous block: 18af651758f4dac90e111dfe07d3abcdc032c034f6afb5e8cd11c544a69bb736
+TransID: 2
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 50
+User id: 0221100fa3df56903f36eedb3142bdbbbfa9a380ff1d9b698706f5749d779f12
+------------------------------Block: 3
+Hash previous block: db8520b9d80175893756658c8437ff5cb02ba5d658ddff1e4a95077e3c250d80
+TransID: 3
+Type: Payment
+
+Spent coins:
+Num: 0
+Value: 100
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+Created coins:
+Num: 0
+Value: 50
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+
+CASE 2 - UNSUCCESSFUL PAYMENT
+The sender tries to spend more number of coins than he actually hashlib
+
+Enter action to perform
+2
+Enter Sender
+"goofy"
+Enter Receiver
+"amit"
+Enter coins to pay
+50
+transaction =  TransID: 0
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 0
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+transaction =  TransID: 1
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 100
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+transaction =  TransID: 2
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 50
+User id: 0221100fa3df56903f36eedb3142bdbbbfa9a380ff1d9b698706f5749d779f12
+
+transaction =  TransID: 3
+Type: Payment
+
+Spent coins:
+Num: 0
+Value: 100
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+Created coins:
+Num: 0
+Value: 50
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+spent coin
+
+transaction =  TransID: 4
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 50
+User id: 0221100fa3df56903f36eedb3142bdbbbfa9a380ff1d9b698706f5749d779f12
+
+transaction =  TransID: 5
+Type: Payment
+
+Spent coins:
+Num: 0
+Value: 50
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+Created coins:
+Num: 0
+Value: 0
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+spent coin
+
+*********
+Num: 0
+Value: 0
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+Num: 0
+Value: 0
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+*********
+Insufficient balance
+
+------------------------------Ledger------------------------------
+Block: 0
+Hash previous block: None
+TransID: 0
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 0
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+------------------------------Block: 1
+Hash previous block: 26873f8a49f2af3fc87790fa89ea7f455b66227151d75d3422820ea5b660eea3
+TransID: 1
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 100
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+------------------------------Block: 2
+Hash previous block: 18af651758f4dac90e111dfe07d3abcdc032c034f6afb5e8cd11c544a69bb736
+TransID: 2
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 50
+User id: 0221100fa3df56903f36eedb3142bdbbbfa9a380ff1d9b698706f5749d779f12
+------------------------------Block: 3
+Hash previous block: db8520b9d80175893756658c8437ff5cb02ba5d658ddff1e4a95077e3c250d80
+TransID: 3
+Type: Payment
+
+Spent coins:
+Num: 0
+Value: 100
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+Created coins:
+Num: 0
+Value: 50
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+------------------------------Block: 4
+Hash previous block: 470a1a133ea332ec5f600886f752f96d8818d3b7d2d79b5a75dcffdefae2392e
+TransID: 4
+Type: Coin base transaction
+
+Created coins:
+Num: 0
+Value: 50
+User id: 0221100fa3df56903f36eedb3142bdbbbfa9a380ff1d9b698706f5749d779f12
+------------------------------Block: 5
+Hash previous block: 60495c1a4f0d985e6976ce537922d58a59151463289bcb2224ca7f2b8d0fb390
+TransID: 5
+Type: Payment
+
+Spent coins:
+Num: 0
+Value: 50
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+
+Created coins:
+Num: 0
+Value: 0
+User id: e47ef43d6c7500faa8649b8dc5d6ed6948ba19874a5d98c0cfef44e39666373e
+------------------------------Block: 6
+Hash previous block: 6b8fddeb4e0a89d3c47454dbd1ab6f082e79d71b1517db5a7d6ba44a6430e43f
+TransID: 6
+Type: Payment
+
+Spent coins:
+
+Created coins:
+------------------------------
+Enter action to perform
+0
+
+Since the payment was unsuccessful, the coins were neither created nor spent
